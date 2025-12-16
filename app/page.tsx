@@ -12,7 +12,7 @@ const HomePage = () => {
         {size.map((item) => (
           <Link
             key={item}
-            href={`memorycard/${item}`}
+            href={item}
             className="bg-blue-700 w-15 h-10 flex items-center justify-center rounded-md shadow-md shadow-gray-700 hover:bg-green-800 hover:-translate-y-0.5 hover:shadow-xl hoverEffect"
           >
             {item}
