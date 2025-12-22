@@ -8,7 +8,7 @@ interface Props {
     gameSize:number
 }
 
-const GameHeader = ({numberOfMove, duration,bestPoint,gameSize}:Props) => {
+const GameHeader = ({numberOfMove, duration,bestPoint}:Props) => {
 
 
   return (

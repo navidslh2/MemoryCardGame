@@ -23,6 +23,7 @@ export const useChangeّImageHandler = (
     const local = localStorage.getItem('score')
     return local? JSON.parse(local) : []
   });
+  const [showModal,setShowModal] = useState(false)
 
   const changeّImageHandler = (imageId: number, index: number) => {
     if (isFinish) return;
@@ -59,6 +60,8 @@ export const useChangeّImageHandler = (
         ...prev,
         { gameSize: gameSize, numberOfMove: numberOfMove, duration: duration },
       ]);
+      setStartTime(null)
+      setShowModal(true)
     }
   },[completeList])
 
@@ -75,6 +78,14 @@ export const useChangeّImageHandler = (
     localStorage.setItem('score',score)
   },[bestScore])
   
+  const gameRepeatHandler =()=>{
+    setShowModal(false)
+    setIsFinish(false)
+  }
+
+  const closeModalHandler =()=>{
+    setShowModal(false)
+  }
 
   return {
     numberOfMove,
@@ -86,6 +97,8 @@ export const useChangeّImageHandler = (
     isFinish,
     duration,
     bestScore,
-    setIsFinish
-  };
+    showModal,
+    gameRepeatHandler,
+    closeModalHandler
+    };
 };
