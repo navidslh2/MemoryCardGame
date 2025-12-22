@@ -6,6 +6,5 @@ export const card = [
     {id:5 , image:'next.png'},
     {id:6 , image:'react.png'},
     {id:7 , image:'javascript.jpg'},
-    {id:8 , image:'typescript.png'},
-    
+    {id:8 , image:'typescript.png'},    
 ]

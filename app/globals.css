@@ -17,3 +17,8 @@ body {
   font-family: "Vazir";
 }
 
+@layer base {
+  .hoverEffect {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
