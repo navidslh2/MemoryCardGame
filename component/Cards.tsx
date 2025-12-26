@@ -19,7 +19,7 @@ const Cards = ({ gameSize, idList, changeّImageHandler, firstImage, secondImage
   
   return ( 
     <div
-      className={` pt-25 px-1  grid ${gridStyle}   ${cardsStyle} aspect-square m-auto`}
+      className={`pt-25 px-1  grid ${gridStyle} ${cardsStyle}  m-auto`}
     >
       {cardStyle  &&
         idList.map((id, index) => (

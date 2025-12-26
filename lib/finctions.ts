@@ -8,18 +8,18 @@ export const gridFunction = (gameSize: Number) => {
   switch (gameSize) {
     case 4:
       gridStyle = "grid-cols-4";
-      cardsStyle = "w-[500px] sm:w-[500px] md:[850px] gap-1 md:gap-3 xl:gap-5"
-      cardStyle = "w-18 h-18 sm:w-25 sm:h-25 md:w-35 md:h-35"
+      cardsStyle = "w-[350px] sm:w-[500px] md:[600px] gap-3 xl:gap-5"
+      cardStyle = "w-18 h-18 sm:w-25 sm:h-25 md:w-30 md:h-30"
       break
     case 8:
       gridStyle = "grid-cols-8";
-       cardsStyle = "w-[500px] sm:w-[700px] md:[850px] gap-0.5"
-      cardStyle = "w-12 h-12 sm:w-17 sm:h-17 md:w-20 md:h-20 "
+       cardsStyle = "w-[450px] sm:w-[600px] md:w-[700px] xl:w-[810px] gap-2"
+      cardStyle = "w-12 h-12 sm:w-17 sm:h-17 md:w-18 md:h-18 xl:w-23 xl:h-23"
       break
     case 16:
       gridStyle = "grid-cols-16";
-      cardsStyle = "w-[550px] sm:w-[600px] md:[850px] gap-1"
-      cardStyle = "w-5 h-5 sm:w-9.5 sm:h-9.5 md:w-11 md:h-11"
+      cardsStyle = "w-[450px] sm:w-[600px] md:w-[750px] xl:w-[850px]  gap-1"
+      cardStyle = "w-5 h-5 sm:w-8 sm:h-8 md:w-9 md:h-9 xl:w-12 xl:h-12"
       break
   }
   return {gridStyle, cardStyle, cardsStyle}
