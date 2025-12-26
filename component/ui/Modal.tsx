@@ -9,7 +9,7 @@ interface Props {
   duration: number;
   bestPoint: number | string;
   size: string;
-  gameRepeatHandler: () => void;
+  restartHandler: () => void;
   closeModalHandler:() =>void
   showModal:boolean
 }
@@ -19,7 +19,7 @@ const Modal = ({
   duration,
   bestPoint,
   size,
-  gameRepeatHandler,
+  restartHandler,
   closeModalHandler,
   showModal
 }: Props) => {
@@ -52,7 +52,7 @@ const Modal = ({
         </div>
         <div className="m-auto">شما موفق شدید بازی را به پایان برسانید</div>
         <div className="flex justify-around">
-          <button onClick={gameRepeatHandler} className="bg-blue-400 p-2 rounded-md cursor-pointer hover:scale-105 hoverEffect ">تکرار بازی</button>
+          <button onClick={restartHandler} className="bg-blue-400 p-2 rounded-md cursor-pointer hover:scale-105 hoverEffect ">تکرار بازی</button>
           <Link href="/" className="bg-blue-400 p-2 rounded-md cursor-pointer hover:scale-105 hoverEffect ">تغییر سایز بازی</Link>
         </div>
         <button className="absolute top-5 right-5 hover:text-green-900 hoverEffect cursor-pointer" onClick={closeModalHandler}>

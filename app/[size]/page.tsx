@@ -22,15 +22,15 @@ export default function GamePage ({params}:Props) {
     const gameSize = Number(size.split("*")[0]);
     const imageNumber = gameSize ** 2;
     const [idList] = useState(createList(imageNumber))
-    const {numberOfMove, firstImage, secondImage, completeList, changeّImageHandler, duration, bestScore, isFinish,  showModal, gameRepeatHandler, closeModalHandler} = useChangeّImageHandler(imageNumber,gameSize)
+    const {numberOfMove, firstImage, secondImage, completeList, changeّImageHandler, duration, bestScore, isFinish,  showModal, closeModalHandler, restartHandler} = useChangeّImageHandler(imageNumber,gameSize)
     const  bestPoint = bestScoreHnadler(bestScore,gameSize)
 
 
   return (
     <div>
-    <GameHeader numberOfMove={numberOfMove}  duration={duration} bestPoint={bestPoint} gameSize={gameSize} />
+    <GameHeader numberOfMove={numberOfMove}  duration={duration} bestPoint={bestPoint} gameSize={gameSize} restartHandler={restartHandler} />
     <Cards gameSize={gameSize} idList={idList} changeّImageHandler={changeّImageHandler} firstImage={firstImage} secondImage={secondImage} completeList={completeList}/>
-    <Modal isFinish={isFinish} numberOfMove={numberOfMove} duration={duration} bestPoint={bestPoint} size={size} gameRepeatHandler={gameRepeatHandler} closeModalHandler={closeModalHandler} showModal={showModal} />
+    <Modal isFinish={isFinish} numberOfMove={numberOfMove} duration={duration} bestPoint={bestPoint} size={size} restartHandler={restartHandler} closeModalHandler={closeModalHandler} showModal={showModal} />
     </div>
   )
 }

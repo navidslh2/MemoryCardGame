@@ -50,7 +50,7 @@ const Card = ({
             src={`/images/${imageUrl}`}
             fill
             alt={card[imageId].image}
-            className="object-contain rounded-md "
+            className="object-cover rounded-md "
             onClick={
               !isComplete
                 ? () => changeّImageHandler(imageId, index)

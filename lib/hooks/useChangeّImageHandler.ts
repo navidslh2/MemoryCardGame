@@ -19,11 +19,11 @@ export const useChangeّImageHandler = (
   const [completeList, setCompleteList] = useState<number[]>([]);
   const [isFinish, setIsFinish] = useState(false);
   const [duration, setDuration] = useState(0);
-  const [bestScore, setBestScore] = useState<BestScore[]>(()=>{
-    const local = localStorage.getItem('score')
-    return local? JSON.parse(local) : []
+  const [bestScore, setBestScore] = useState<BestScore[]>(() => {
+    const local = localStorage.getItem("score");
+    return local ? JSON.parse(local) : [];
   });
-  const [showModal,setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
 
   const changeّImageHandler = (imageId: number, index: number) => {
     if (isFinish) return;
@@ -50,20 +50,19 @@ export const useChangeّImageHandler = (
       setFirstImage(null);
       setSecondImage(null);
     }
-   
   };
 
-  useEffect(()=>{
-     if (completeList.length === imageNumber) {
+  useEffect(() => {
+    if (completeList.length === imageNumber) {
       setIsFinish(true);
       setBestScore((prev) => [
         ...prev,
         { gameSize: gameSize, numberOfMove: numberOfMove, duration: duration },
       ]);
-      setStartTime(null)
-      setShowModal(true)
+      setStartTime(null);
+      setShowModal(true);
     }
-  },[completeList])
+  }, [completeList]);
 
   useEffect(() => {
     if (startTime === null || isFinish) return;
@@ -73,20 +72,26 @@ export const useChangeّImageHandler = (
     return () => clearInterval(interval);
   }, [startTime, isFinish]);
 
-  useEffect(()=>{
-    const score = JSON.stringify(bestScore)
-    localStorage.setItem('score',score)
-  },[bestScore])
-  
-  const gameRepeatHandler =()=>{
-    setShowModal(false)
-    setIsFinish(false)
-  }
+  useEffect(() => {
+    const score = JSON.stringify(bestScore);
+    localStorage.setItem("score", score);
+  }, [bestScore]);
 
-  const closeModalHandler =()=>{
-    setShowModal(false)
-  }
 
+  const closeModalHandler = () => {
+    setShowModal(false);
+  };
+
+  const restartHandler = () => {
+    setShowModal(false);
+    setIsFinish(false);
+    setFirstImage(null);
+    setSecondImage(null);
+    setStartTime(Date.now())
+    setDuration(0);
+    setCompleteList([]);
+    setNumberOfMove(0)
+  };
   return {
     numberOfMove,
     startTime,
@@ -98,7 +103,7 @@ export const useChangeّImageHandler = (
     duration,
     bestScore,
     showModal,
-    gameRepeatHandler,
-    closeModalHandler
-    };
+    closeModalHandler,
+    restartHandler,
+  };
 };

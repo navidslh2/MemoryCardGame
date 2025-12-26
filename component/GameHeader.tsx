@@ -6,9 +6,10 @@ interface Props {
     duration:number
     bestPoint:number | string
     gameSize:number
+    restartHandler: ()=>void
 }
 
-const GameHeader = ({numberOfMove, duration,bestPoint}:Props) => {
+const GameHeader = ({numberOfMove, duration,bestPoint, restartHandler}:Props) => {
 
 
   return (
@@ -26,6 +27,7 @@ const GameHeader = ({numberOfMove, duration,bestPoint}:Props) => {
         <span>بهترین امتیاز: </span>
         {bestPoint}
       </div>
+      <button className="bg-blue-400 p-2 rounded-md cursor-pointer hover:scale-105 hoverEffect" onClick={restartHandler}>شروع مجدد</button>
     </div>
   )
 }

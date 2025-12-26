@@ -48,6 +48,6 @@ export const setImage =(completeList:number[], index:number, imageId:number, fir
 
 export const bestScoreHnadler = (bestScore:BestScore[],gameSize:number) =>{
   const sizeFilter = bestScore.filter(score => score.gameSize === gameSize)
-  if(sizeFilter.length === 0) return 'امتیازی ثبت نشده است'
+  if(sizeFilter.length === 0) return 0
   return Math.min(...sizeFilter.map(sc => sc.numberOfMove))
 }
